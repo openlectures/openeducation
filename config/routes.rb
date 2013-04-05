@@ -1,4 +1,14 @@
 Openeducation::Application.routes.draw do
+  resources :checkpoints
+
+  resources :lessons
+
+  resources :topics
+
+  resources :seab_sub_topics
+
+  resources :seab_topics
+
   resources :subjects
 
   root to: "application#index"

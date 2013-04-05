@@ -11,13 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130403095445) do
+ActiveRecord::Schema.define(version: 20130405135407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "checkpoints", force: true do |t|
+    t.string   "checkpoint"
+    t.text     "description"
+    t.integer  "lesson_id"
+    t.string   "videourl"
+    t.string   "question"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lessons", force: true do |t|
+    t.string   "lesson"
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seab_sub_topics", force: true do |t|
+    t.string   "seab_sub_topic"
+    t.integer  "seab_topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seab_topics", force: true do |t|
+    t.string   "seab_topic"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subjects", force: true do |t|
     t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", force: true do |t|
+    t.text     "description"
+    t.integer  "subject_id"
+    t.integer  "seab_sub_topic_id"
+    t.string   "topic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
