@@ -14,6 +14,7 @@ group :development do
   gem 'better_errors'
   gem 'bullet'
   gem 'annotate'
+  gem 'ruby-growl'
 end
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
