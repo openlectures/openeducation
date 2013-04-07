@@ -23,6 +23,7 @@ group :assets do
   gem 'bourbon'
 end
 
+gem 'haml-rails'
 gem 'jquery-rails'
 
 gem 'turbolinks'
