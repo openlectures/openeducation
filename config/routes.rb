@@ -10,11 +10,11 @@ Openeducation::Application.routes.draw do
   resources :subjects
 
   root to: "pages#home"
-  match "/contact", to: "pages#contact", via: :get
-  match "/advanced-search", to: "pages#advanced_search", via: :get
-  match "/about", to: "pages#about", via: :get
-  match "/press", to: "pages#press_kit", via: :get
-  match "/contribute", to: "pages#contribute", via: :get
-  match "/partners", to: "pages#partners", via: :get
-  match "/staff", to: "pages#staff_dir", via: :get
+  get "/contact" => "pages#contact"
+  get "/advanced-search" => "pages#advanced_search"
+  get "/about" => "pages#about"
+  get "/press" => "pages#press_kit"
+  get "/contribute" => "pages#contribute"
+  get "/partners" => "pages#partners"
+  get "/staff" => "pages#staff_dir"
 end
