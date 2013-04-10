@@ -1,31 +1,31 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.0.beta1'
 
-gem 'pg'
+gem 'pg' #Database Adapter
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails' #Testing Framework
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara' #Additional Matchers for RSpec (visit)
 end
+
 group :development do
-  gem 'better_errors'
-  gem 'bullet'
-  gem 'annotate'
-  gem 'ruby-growl'
+  gem 'better_errors' #'nuff said
+  gem 'bullet' #Detection for N+1 queries
+  gem 'annotate' #Annotate Models
 end
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bourbon'
+  gem 'sass-rails',   '~> 4.0.0.beta1' #SASS
+  gem 'coffee-rails', '~> 4.0.0.beta1' #Coffeescript
+  gem 'uglifier', '>= 1.0.3' #Minifies assets
+  gem 'bourbon' #Library for SASS
 end
 
-gem 'haml-rails'
-gem 'jquery-rails'
+gem 'haml-rails' #HAML templating
+gem 'jquery-rails' #Jquery
 
-gem 'turbolinks'
-gem 'jbuilder', '~> 1.0.1'
-gem 'unicorn'
+gem 'turbolinks' #App-like loading
+gem 'jbuilder', '~> 1.0.1' #JSON API builder
+gem 'unicorn' #Web server
