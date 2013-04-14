@@ -28,7 +28,6 @@ Openeducation::Application.configure do
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
-    Bullet.growl = true
   end
 end
 

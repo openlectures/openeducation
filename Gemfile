@@ -25,6 +25,7 @@ end
 
 gem 'haml-rails' #HAML templating
 gem 'jquery-rails' #Jquery
+gem 'clearance', '1.0.0.rc7'
 
 gem 'turbolinks' #App-like loading
 gem 'jbuilder', '~> 1.0.1' #JSON API builder
