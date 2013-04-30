@@ -21,7 +21,8 @@ group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'  # SASS
   gem 'coffee-rails', '~> 4.0.0.beta1'  # Coffeescript
   gem 'uglifier', '>= 1.0.3'            # Minifies Assets
-  gem 'bourbon'                         # SASS Library
+  gem 'bourbon'                         # SASS Mixin Library
+  gem 'neat'                            # SASS Grid Library
 end
 
 gem 'haml-rails'                        # HAML Templating

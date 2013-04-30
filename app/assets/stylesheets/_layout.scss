@@ -1,0 +1,56 @@
+//// Global Declarations ////
+body {
+  @include outer-container;           // Sets a max-width on the body, defined in _grid-settings.scss
+}
+
+//// Desktop Classes ////
+@include media($computer) {
+  article {
+    @include span-columns(5);         // Defines the basic one-half column
+    @include omega(2n);               // Automagically removes every second right gutter (for stacking)
+    @include pad($column/1.618 0 0 0);
+    &:nth-child(2n+1) {
+      @include shift(3);              // Pushes it to the center of the screen
+    }
+    &:only-child {
+      @include span-columns(10);      // Expands the column if it's the only one in the section
+    }
+    &:only-of-type:not(:only-child) { // Voodoo to select the article element in article-aside pair
+      @include span-columns(7);       // Expands the half-page column if it appears before the side column
+    }
+  }
+
+  aside {
+    @include span-columns(3.333);     // Defines the basic one-third column
+    @include omega(3n);               // Automagically removes every third right gutter (for stacking)
+    @include pad($column/1.618 0 0 0);
+    &:nth-child(3n+1) {
+      @include shift(3);              // Pushes it to the center of the screen
+    }
+    &:only-child {
+      @include shift(9.67);           // Pushes the column all the way to the right if it's the only one in the section
+    }
+    &:only-of-type:not(:only-child) { // Voodoo to select the aside element in article-aside pairs
+      @include span-columns(3);       // Shrinks the half-page column if it appears before the side column
+    }
+  }
+
+  header,footer {
+    @include span-columns(10);        // Sets up the header and footer elements to span the page by default
+    @include shift(3);                // Pushes it to the center of the screen
+  }
+}
+
+//// Tablet and Mobile Classes ////
+header,footer,article,aside {
+  @include media($mobile) {
+    @include span-columns(14);        // Expands the elements to fill the screen width with a one column border
+    @include shift(1);                // Pushes it to the center of the screen
+    @include pad($column/1.618/1.618 0 0 0); // Decreases the element top padding
+  }
+  @include media($tablet) {
+    @include span-columns(12);        // Expands the elements to fill the screen width with a two column border
+    @include shift(2);                // Pushes it to the center of the screen
+    @include pad($column/1.618 0 0 0); // Decreases the element top padding
+  }
+}

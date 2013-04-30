@@ -1,0 +1,90 @@
+$font-family: 'Bitter',serif; // Redeclare font-family variable to add our own font-face
+$font-properties: $weight, $line-height, $font-size, $font-family; // Stole this from Typeplate to reinitialize the var
+
+html {
+  @include base-type($font-properties...);    // Also stole this from Typeplate to stuff for the new font
+  -webkit-font-smoothing: antialiased;        // Make fonts look nice and crisp on WebKit
+  -ms-font-smoothing:     antialiased;        // Make things look barely acceptable on I-bloody-E
+  -o-font-smoothing:      antialiased;        // Make fonts look nice and crisp on Opera
+  font-smoothing:         antialiased;        // Prefixless fallback for antialiased font rendering
+  text-rendering:         optimizeLegibility; // What it says, you can read can't you?
+  @include media($mobile) {
+    font-size: 90%; // Chops the font-size by 10% on mobile devices (since we'll be holding stuff closer)
+  }
+  @include media($tablet) {
+    font-size: 95%; // Chops the font-size by 5% on tablet-sized devices so it ain't too yo' mamma
+  }
+}
+
+//// Link Management ////
+
+// Adds a fade transition to links and removes the underline
+a {
+  color: #333745;
+  @include transition(color 150ms ease);
+  text-decoration: none !important;
+  font-weight: bold;
+  &:hover {
+    color: #EA2E49;
+  }
+}
+
+// Increases the clickable area around paragraph links for mobile devices
+@include media($mobile) {
+  p a {
+      margin: -.5em;
+      padding: .5em;
+      position: relative;
+  }
+}
+
+//// Alignment Classes ////
+
+.text-center {
+  text-align:center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+//// Selection Colors ////
+
+::-moz-selection {        // Removes the text shadow in the OS selection highlight
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {             // Removes the text shadow in the OS selection highlight
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+//// Typeplate Fixes ////
+
+// Redefine the typeplate pull-quotes mixin to fix the unicode rendering problem
+@mixin pull-quotes($font-size, $opacity) {
+  position: relative;
+  padding: ems($font-size, $font-size);
+  &:before,
+  &:after {
+    height: ems($font-size, $font-size);
+    opacity: $opacity;
+    position: absolute;
+    font-size: $font-size;
+  }
+  &:before {
+    content: open-quote;
+    top:  0;
+    left: 0;
+  }
+  &:after {
+    content: close-quote;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.pull-quote {
+  @include pull-quotes(4em, .15);
+}
