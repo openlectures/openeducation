@@ -1,4 +1,4 @@
-$font-family: 'Bitter',serif; // Redeclare font-family variable to add our own font-face
+$font-family: $helvetica; // Redeclare font-family variable to add our own font-face
 $font-properties: $weight, $line-height, $font-size, $font-family; // Stole this from Typeplate to reinitialize the var
 
 html {

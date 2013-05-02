@@ -15,6 +15,7 @@ group :development do
   gem 'better_errors'                   # 'nuff said
   gem 'bullet'                          # Detection for N+1 queries
   gem 'annotate'                        # Annotate Models
+  gem 'xray-rails'                      # Reveals UI constituents
 end
 
 group :assets do
