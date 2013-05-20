@@ -6,6 +6,7 @@ class AddClearanceToUsers < ActiveRecord::Migration
       t.string :remember_token, :limit => 128
     end
 
+    add_index :users, :email
     add_index :users, :remember_token
   end
 
